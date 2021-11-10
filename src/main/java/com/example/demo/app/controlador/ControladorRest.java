@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  *
  * @author DELL
+ * http://10.10.10.20:8080/api/products
+ * 
+ * 
  */
 @RestController
 @RequestMapping("/api")    
@@ -30,30 +33,31 @@ public class ControladorRest {
     @Autowired
     private ProductService service;
     
+    // http://10.10.10.20:8080/api/products
     @GetMapping("/products")    
     public List<Product> findAllProducts(){
         return service.getProducts();
     }
-    
+    // http://10.10.10.20:8080/api/products/20
     @GetMapping("/products/{id}")    
     public Product findProductsId(@PathVariable int id){
         return service.getProductById(id);
     }
     
-    
+    // http://10.10.10.20:8080/api/products
     @PostMapping("/products")
     public ResponseEntity addProduct(@RequestBody Product product){
         service.saveProduct(product);
         return ResponseEntity.status(201).build();
     }
     
-    
+    // http://10.10.10.20:8080/api/products
     @PutMapping("/products")
        public ResponseEntity updateProduct(@RequestBody Product product){
        service.updateProduct(product);
        return ResponseEntity.status(201).build();
     }
-       
+     // http://10.10.10.20:8080/api/products 
     @DeleteMapping("/products")
       public ResponseEntity deleteProduct(@RequestBody Product product){
            service.deleteProduct(product.getId());

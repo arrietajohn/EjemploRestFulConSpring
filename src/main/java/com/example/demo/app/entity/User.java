@@ -13,25 +13,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- *
- * @author DELL
- */
+/**                   
+*
+* @author DELL
+*/
 @Entity
 @Table(name="users")
 public class User  implements Serializable{
-    
-    
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @Column(length=50)
-    private String name;
+    private String name; // 
+    @Column(length=100)
     private String surname;
     @Column(name="mail",nullable=false,length=50,unique=true)
-     private String email;
- 
+    private String email;
+    
     
 
     public Long getId() {

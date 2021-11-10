@@ -22,12 +22,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="PRODUCT_TBL")
-public class Product implements Serializable {    
+@Table(name = "PRODUCT_TBL")
+public class Product implements Serializable {
+
     @Id
     @GeneratedValue
     private int id;
     private String name;
     private int quantity;
     private double price;
+
 }
